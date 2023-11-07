@@ -1,3 +1,4 @@
+import {useEffect} from 'react'
 import { DevTool } from "@hookform/devtools"
 import { useForm, useFieldArray } from "react-hook-form"
 
@@ -50,7 +51,17 @@ const YoutubeForm = () => {
   })
 
   // const watchUsername = watch("username") // ou un array la dessous, si on ne met pas d'argument il va regarder tout le champ du formulaire
-  const watchUsername = watch(["username", "email"])
+  // const watchUsername = watch(["username", "email"])
+
+  useEffect(() => {
+    const subscription = watch((value) => {
+      console.log(value)
+    })
+  
+    return () => subscription.unsubscribe()
+
+  }, [watch])
+
 
   renderCount++
 
@@ -61,7 +72,7 @@ const YoutubeForm = () => {
   return (
     <div>
       <h1>Youtube Form ({renderCount/2})</h1>
-      <h2>Watched value : {watchUsername}</h2>
+      <h2>Watched value : </h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
         <div className="form-control">
