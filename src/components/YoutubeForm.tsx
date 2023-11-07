@@ -8,7 +8,8 @@ type FormValue = {
   social: {
     twitter: string
     facebook: string
-  }
+  }, 
+  phoneNumber: string[]
 }
 
 let renderCount = 0
@@ -25,8 +26,8 @@ const YoutubeForm = () => {
       social: {
         facebook: "",
         twitter: "",
-      }
-      
+      },
+      phoneNumber: ["", ""]
     }
   })
 
@@ -107,14 +108,56 @@ const YoutubeForm = () => {
         <div className="form-control">
 
           <label htmlFor="twitter">twitter</label>
-          <input type="text" id="twitter" {...register("social.twitter")}/>
+          <input type="text" id="twitter" {...register("social.twitter", {
+            required: {
+              value: true,
+              message: "twitter is required", 
+            }
+          })}/>
+
+          <p className="error">{errors.social?.twitter?.message}</p>
 
         </div>
 
         <div className="form-control">
 
           <label htmlFor="facebook">facebook</label>
-          <input type="text" id="facebook" {...register("social.facebook")}/>
+          <input type="text" id="facebook" {...register("social.facebook", {
+            required: {
+              value: true,
+              message: "facebook is required",
+            }
+          })}/>
+
+          <p className="error">{errors.social?.facebook?.message}</p>
+
+        </div>
+
+        <div className="form-control">
+
+          <label htmlFor="primary-phone">Primary Phone Number</label>
+          <input type="text" id="primary-phone" {...register("phoneNumber.0", {
+            required: {
+              value: true,
+              message: "Primary phone number is required",
+            }
+          })}/>
+
+          <p className="error">{errors.phoneNumber?.message}</p>
+
+        </div>
+
+        <div className="form-control">
+
+          <label htmlFor="secondary-phone">Secondary Phone Number</label>
+          <input type="text" id="secondary-phone" {...register("phoneNumber.1", {
+            required: {
+              value: true,
+              message: "Secondary phone number is required",
+            }
+          })}/>
+
+          <p className="error">{errors.phoneNumber?.message}</p>
 
         </div>
 
