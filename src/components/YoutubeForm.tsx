@@ -40,7 +40,7 @@ const YoutubeForm = () => {
     }
   })
 
-  const {register, control, handleSubmit, formState, watch} = form
+  const {register, control, handleSubmit, formState, watch, getValues} = form
 
   const {errors} = formState 
 
@@ -53,14 +53,19 @@ const YoutubeForm = () => {
   // const watchUsername = watch("username") // ou un array la dessous, si on ne met pas d'argument il va regarder tout le champ du formulaire
   // const watchUsername = watch(["username", "email"])
 
-  useEffect(() => {
-    const subscription = watch((value) => {
-      console.log(value)
-    })
+  // useEffect(() => {
+  //   const subscription = watch((value) => {
+  //     console.log(value)
+  //   })
   
-    return () => subscription.unsubscribe()
+  //   return () => subscription.unsubscribe()
 
-  }, [watch])
+  // }, [watch])
+
+
+  const handleGetValues = () => {
+    console.log("valeurs obtenuees",getValues())
+  }
 
 
   renderCount++
@@ -259,6 +264,9 @@ const YoutubeForm = () => {
 
 
         <button>Submit</button>
+
+        <button type='button' onClick={handleGetValues}>get values</button>
+
       </form>
 
       <DevTool control={control} />
