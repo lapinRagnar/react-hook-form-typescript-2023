@@ -12,7 +12,13 @@ let renderCount = 0
 
 const YoutubeForm = () => {
 
-  const form = useForm<FormValue>()
+  const form = useForm<FormValue>({
+    defaultValues: {
+      username: "Batman",
+      email: "",
+      channel: "",
+    },
+  })
 
   const {register, control, handleSubmit, formState} = form
 
