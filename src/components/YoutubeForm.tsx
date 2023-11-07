@@ -12,7 +12,8 @@ type FormValue = {
   phoneNumber: string[],
   phNumber: {
     number: string
-  }[]
+  }[],
+  age: number
 }
 
 let renderCount = 0
@@ -32,6 +33,7 @@ const YoutubeForm = () => {
       },
       phoneNumber: ["", ""],
       phNumber: [{number: ""}],
+      age: 0
     }
   })
 
@@ -181,7 +183,7 @@ const YoutubeForm = () => {
                   <div className="form-control" key={field.id}>
                     <input 
                       type="text" 
-                      {...register(`phNumbers.${index}.number` as const)}
+                      {...register(`phNumber.${index}.number` as const)}
                     />
 
                     {
@@ -197,6 +199,28 @@ const YoutubeForm = () => {
             <button type="button" onClick={() => append({number: ""})}>Add phone number</button>
           </div>
         </div>
+
+
+        
+        <div className="form-control">
+
+
+
+          <label htmlFor="age">Age</label>
+          <input type="number" id="age" {...register("age", {
+            valueAsNumber: true,
+            required: {
+              value: true,
+              message: "Age is required",
+            },
+          })}/>
+
+          <p className="error">{errors.age?.message}</p>
+
+
+        </div>
+
+
 
         <button>Submit</button>
       </form>
