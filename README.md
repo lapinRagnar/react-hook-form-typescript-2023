@@ -30,6 +30,15 @@ If you are developing a production application, we recommend updating the config
 https://www.youtube.com/watch?v=sw665di3n60&list=PLC3y8-rFHvwjmgBr1327BA5bVXoQH-w5s&index=2
 https://github.com/gopinav/React-Hook-Form-Tutorials/tree/main/rhf-demo
 
+# installtion de reactForm hook
+```bash
+npm install react-hook-form 
+```	
+
+## installtion de devtools
+```bash
+npm install @hookform/devtools
+```
 
 
 
