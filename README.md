@@ -35,6 +35,11 @@ https://github.com/gopinav/React-Hook-Form-Tutorials/tree/main/rhf-demo
 npm install react-hook-form 
 ```	
 
+## installtion de devtools
+```bash
+npm install @hookform/devtools
+```
+
 
 
 
