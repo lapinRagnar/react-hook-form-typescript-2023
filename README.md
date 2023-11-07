@@ -25,3 +25,28 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# le tuto
+https://www.youtube.com/watch?v=sw665di3n60&list=PLC3y8-rFHvwjmgBr1327BA5bVXoQH-w5s&index=2
+https://github.com/gopinav/React-Hook-Form-Tutorials/tree/main/rhf-demo
+
+
+
+
+
+# ressource pour react
+- react hook
+- react typescript
+- react redux
+- react router
+- react testing
+- react material ui
+- react styled components
+- react storybook
+- react query
+- react table
+- react formik
+- react render
+- react hook form
+- react hook form validation
+  
