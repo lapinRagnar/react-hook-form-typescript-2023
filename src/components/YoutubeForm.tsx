@@ -5,6 +5,10 @@ type FormValue = {
   username: string
   email: string
   channel: string
+  social: {
+    twitter: string
+    facebook: string
+  }
 }
 
 let renderCount = 0
@@ -13,14 +17,16 @@ let renderCount = 0
 const YoutubeForm = () => {
 
   const form = useForm<FormValue>({
-    defaultValues: async () => {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
-      const data = await response.json()
-      return {
-        username: data.username,
-        email: data.email,
-        channel: ""
+    defaultValues: {
+
+      username: "batman",
+      email: "",
+      channel: "",
+      social: {
+        facebook: "",
+        twitter: "",
       }
+      
     }
   })
 
@@ -94,6 +100,21 @@ const YoutubeForm = () => {
 
           <p className="error">{errors.channel?.message}</p>
 
+
+        </div>
+
+
+        <div className="form-control">
+
+          <label htmlFor="twitter">twitter</label>
+          <input type="text" id="twitter" {...register("social.twitter")}/>
+
+        </div>
+
+        <div className="form-control">
+
+          <label htmlFor="facebook">facebook</label>
+          <input type="text" id="facebook" {...register("social.facebook")}/>
 
         </div>
 
