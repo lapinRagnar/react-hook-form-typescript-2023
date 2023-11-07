@@ -57,8 +57,13 @@ const YoutubeForm = () => {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: "invalid email address"
             },
-            validate: (fieldValue) => {
-              return fieldValue !== "admin@example.com" || "enter a different email"
+            validate: {
+              notAdmin: (fieldValue) => {
+                return fieldValue !== "admin@example.com" || "enter a different email"
+              },
+              notBlank: (fieldValue) => {
+                return !fieldValue.endsWith("@something.com") || "cannot end with @something.com"
+              }
             }
           })} />
 
