@@ -1,6 +1,7 @@
 import { DevTool } from "@hookform/devtools"
 import { useForm } from "react-hook-form"
 
+let renderCount = 0
 const YoutubeForm = () => {
 
   const form = useForm()
@@ -8,8 +9,11 @@ const YoutubeForm = () => {
   const {register, control} = form
   const {name, ref, onChange, onBlur } = register("username")
 
+  renderCount++
+
   return (
     <div>
+      <h1>Youtube Form ({renderCount/2})</h1>
       <form>
         <label htmlFor="username">Username</label>
         <input
