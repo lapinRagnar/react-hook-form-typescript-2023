@@ -15,7 +15,6 @@ const YoutubeForm = () => {
   const form = useForm<FormValue>()
 
   const {register, control, handleSubmit} = form
-  const {name, ref, onChange, onBlur } = register("username")
 
   renderCount++
 
@@ -32,12 +31,20 @@ const YoutubeForm = () => {
           type="text"
           id="username"
           {...register("username", {
-            required: "Username is required",
+            required: {
+              value: true,
+              message: "Username is required",
+            }
           })}
         />
 
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" {...register("email")} />
+        <input type="email" id="email" {...register("email", {
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+            message: "invalid email address"
+          }
+        })} />
 
         <label htmlFor="channel">Channel</label>
         <input type="text" id="channel" {...register("channel", {
