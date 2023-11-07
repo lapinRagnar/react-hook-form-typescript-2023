@@ -40,7 +40,7 @@ const YoutubeForm = () => {
     }
   })
 
-  const {register, control, handleSubmit, formState, watch, getValues} = form
+  const {register, control, handleSubmit, formState, watch, getValues, setValue} = form
 
   const {errors} = formState 
 
@@ -65,6 +65,10 @@ const YoutubeForm = () => {
 
   const handleGetValues = () => {
     console.log("valeurs obtenuees",getValues(["username", "social"]))
+  }
+
+  const handleSetValue = () => {
+    setValue("username", "joker")
   }
 
 
@@ -266,6 +270,7 @@ const YoutubeForm = () => {
         <button>Submit</button>
 
         <button type='button' onClick={handleGetValues}>get values</button>
+        <button type='button' onClick={handleSetValue}>set value</button>
 
       </form>
 
