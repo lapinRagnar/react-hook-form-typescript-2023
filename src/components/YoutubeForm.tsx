@@ -64,7 +64,7 @@ const YoutubeForm = () => {
 
 
   const handleGetValues = () => {
-    console.log("valeurs obtenuees",getValues())
+    console.log("valeurs obtenuees",getValues(["username", "social"]))
   }
 
 
