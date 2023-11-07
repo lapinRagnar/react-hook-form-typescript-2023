@@ -39,7 +39,7 @@ const YoutubeForm = () => {
     }
   })
 
-  const {register, control, handleSubmit, formState} = form
+  const {register, control, handleSubmit, formState, watch} = form
 
   const {errors} = formState 
 
@@ -48,6 +48,9 @@ const YoutubeForm = () => {
     name: 'phNumber',
     control
   })
+
+  // const watchUsername = watch("username") // ou un array la dessous, si on ne met pas d'argument il va regarder tout le champ du formulaire
+  const watchUsername = watch(["username", "email"])
 
   renderCount++
 
@@ -58,6 +61,7 @@ const YoutubeForm = () => {
   return (
     <div>
       <h1>Youtube Form ({renderCount/2})</h1>
+      <h2>Watched value : {watchUsername}</h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
         <div className="form-control">
